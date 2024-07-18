@@ -1,9 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
+
 using CMS.DataEngine;
 using CMS.DataEngine.Internal;
+using CMS.Helpers;
+
 using Kentico.Xperience.Admin.Base;
+using Kentico.Xperience.Admin.Base.Forms;
 
 using XperienceCommunity.Bynder;
 using XperienceCommunity.Bynder.Admin.UIFormComponents.BynderSelector;
@@ -12,7 +17,7 @@ using XperienceCommunity.Bynder.Admin.UIFormComponents.BynderSelector;
 
 namespace XperienceCommunity.Bynder
 {
-	internal class BynderWebAdminModule : AdminModule
+    internal class BynderWebAdminModule : AdminModule
     {
         public BynderWebAdminModule()
             : base("Bynder.Web.Admin")
@@ -35,8 +40,9 @@ namespace XperienceCommunity.Bynder
 
         private void RegisterDataTypes()
         {
-            DataTypeManager.RegisterDataTypes(new DataType<IEnumerable<BynderAsset>>("nvarchar(max)", "assets", "xs:string", JsonDataTypeConverter.ConvertToModels, JsonDataTypeConverter.ConvertToString, new DefaultDataTypeTextSerializer("assets"))
+            DataTypeManager.RegisterDataTypes(new DataType<IEnumerable<BynderAsset>>("nvarchar(max)", "bynderassets", "xs:string", JsonDataTypeConverter.ConvertToModels, JsonDataTypeConverter.ConvertToString, new DefaultDataTypeTextSerializer("bynderassets"))
             {
+                TypeName = "Bynder assets",
                 TypeAlias = "string",
                 TypeGroup = "Assets",
                 SqlValueFormat = "N'{0}'",
@@ -44,6 +50,8 @@ namespace XperienceCommunity.Bynder
                 DefaultValueCode = "String.Empty",
                 IsAvailableForDataClass = (DataClassInfo dataClassInfo) => !string.Equals(dataClassInfo.ClassContentTypeType, "Email", StringComparison.OrdinalIgnoreCase)
             });
+
+            RegisterDefaultValueComponent("bynderassets", TextInputComponent.IDENTIFIER, ValidationHelper.GetValue<string>, (string value) => ValidationHelper.GetValue<string>(value));
         }
     }
 }

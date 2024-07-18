@@ -8,7 +8,7 @@ namespace DancingGoat.Widgets
 {
     public class BynderImageWidgetProperties : IWidgetProperties
     {
-        [BynderSelectorComponent(AllowedType = AssetTypeConsts.Image, MaximumAssets = 1, MinimumAssets = 1)]
+        [BynderSelectorComponent(AllowedType = AssetTypeConsts.Image, MinimumAssets = 1, MaximumAssets = 3)]
         [RequiredValidationRule]
         public IEnumerable<BynderAsset> BynderImage { get; set; }
     }

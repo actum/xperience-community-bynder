@@ -5,10 +5,10 @@ namespace XperienceCommunity.Bynder.Admin.UIFormComponents.BynderSelector
 {
 	public class BynderSelectorFormComponentProperties : FormComponentProperties
 	{
-        [NumberInputComponent(Label = "{$base.forms.assetselector.minimumassets.label$}")]
+        [NumberInputComponent(Label = "Minimum number of items")]
         public int MinimumAssets { get; set; } = 0;
 
-        [NumberInputComponent(Label = "{$base.forms.assetselector.maximumassets.label$}")]
+        [NumberInputComponent(Label = "Maximum number of items")]
 		public int MaximumAssets { get; set; } = 1;
 
 		public string AllowedType { get; set; }
