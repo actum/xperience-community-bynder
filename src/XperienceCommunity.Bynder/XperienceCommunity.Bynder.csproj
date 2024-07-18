@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+	<AdminOrgName>XperienceCommunity</AdminOrgName>
+	<RootNamespace>XperienceCommunity.Bynder</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <AssemblyAttribute Include="CMS.AssemblyDiscoverableAttribute">
+    </AssemblyAttribute>
+
+	  <Compile Remove="Admin\Client\node_modules\**" />
+	  <EmbeddedResource Remove="Admin\Client\node_modules\**" />
+	  <None Remove="Admin\Client\node_modules\**" />
+
+	  <!-- Requires that npm run build or npm run build:dev was executed _before_ the .NET build -->
+	  <AdminClientPath Include="Admin\Client\dist\**" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		  <ProjectName>bynder</ProjectName>
+	  </AdminClientPath>
+  </ItemGroup>
+  <Target Name="NpmInstall" BeforeTargets="NpmBuildClient" Condition=" '$(Configuration)|$(Platform)' != 'Debug|AnyCPU' ">
+    <Exec Command="npm ci --no-audit --no-fund" WorkingDirectory="$(MSBuildProjectDirectory)\Admin\Client" />
+  </Target>
+  <Target Name="NpmBuildClient" BeforeTargets="BeforeBuild" Condition=" '$(Configuration)|$(Platform)' != 'Debug|AnyCPU' ">
+    <Exec Command="npm run build" WorkingDirectory="$(MSBuildProjectDirectory)\Admin\Client" />
+
+    <ItemGroup>
+        <AdminClientPath Include="Admin\Client\dist\**">
+            <ProjectName>bynder</ProjectName>
+	</AdminClientPath>
+    </ItemGroup>
+  </Target>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="kentico.xperience.admin" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Admin\Client\dist\" />
+  </ItemGroup>
+
+</Project>

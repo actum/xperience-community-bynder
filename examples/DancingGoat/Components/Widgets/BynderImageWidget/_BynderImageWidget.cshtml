@@ -1,0 +1,13 @@
+﻿@using DancingGoat.Widgets
+
+@model BynderImageWidgetProperties
+
+<div class="clear center-text">
+	@if (Model.BynderImage != null)
+	{
+		@foreach (var item in Model.BynderImage)
+		{
+			<img src="@item.Files?.WebImage?.Url" />
+		}
+	}
+</div>
