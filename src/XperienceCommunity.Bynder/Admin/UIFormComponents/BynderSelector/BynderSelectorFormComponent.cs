@@ -40,10 +40,10 @@ public class BynderSelectorFormComponent : FormComponent<BynderSelectorFormCompo
     protected override void ConfigureComponent()
     {
         allowedType = base.Properties.AllowedType;
-        minimumAssets = base.Properties.MinimumAssetes;
+        minimumAssets = base.Properties.MinimumAssets;
         maximumAssets = base.Properties.MaximumAssets;
 
-        minItemsValidationRule.Properties.MinItems = base.Properties.MinimumAssetes;
+        minItemsValidationRule.Properties.MinItems = base.Properties.MinimumAssets;
         maxItemsValidationRule.Properties.MaxItems = base.Properties.MaximumAssets;
 
         base.ConfigureComponent();

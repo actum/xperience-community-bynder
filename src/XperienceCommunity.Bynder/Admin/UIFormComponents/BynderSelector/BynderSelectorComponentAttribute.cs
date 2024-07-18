@@ -6,6 +6,8 @@ namespace XperienceCommunity.Bynder.Admin.UIFormComponents.BynderSelector
 	{
 		public string AllowedType { get; set; }
 
-		public int MaximumAssets { get; set; }
+        public int MinimumAssets { get; set; }
+
+        public int MaximumAssets { get; set; }
 	}
 }
