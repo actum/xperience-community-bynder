@@ -20,7 +20,7 @@ This plugin enhances Xperience by Kentico with a form control that allows users 
 
 ### Dependencies
 
-- [ASP.NET Core 8.0](https://dotnet.microsoft.com/en-us/download)
+- [ASP.NET Core 6.0](https://dotnet.microsoft.com/en-us/download)
 - [Xperience by Kentico](https://docs.kentico.com/changelog)
 - [Bynder Compact View React Component](https://www.npmjs.com/package/@bynder/compact-view)
 
