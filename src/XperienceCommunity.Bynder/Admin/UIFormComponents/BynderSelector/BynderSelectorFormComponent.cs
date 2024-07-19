@@ -17,7 +17,8 @@ namespace XperienceCommunity.Bynder.Admin.UIFormComponents.BynderSelector;
 [ComponentAttribute(typeof(BynderSelectorComponentAttribute))]
 public class BynderSelectorFormComponent : FormComponent<BynderSelectorFormComponentProperties, BynderSelectorFormComponentClientProperties, IEnumerable<BynderAsset>>
 {
-    public const string IDENTIFIER = "Bynder-Selector-Form-Component";
+    public const string IDENTIFIER = "XperienceCommunity.BynderSelector";
+
     public override string ClientComponentName => "@xperiencecommunity/bynder/BynderSelector";
 
     private string[] allowedTypes;

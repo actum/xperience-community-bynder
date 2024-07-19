@@ -37,7 +37,7 @@ dotnet add package XperienceCommunity.Bynder
 ### Widget properties
 
 C# data type: **IEnumerable\<BynderAsset\>** \
-Form component attribute: **BynderSelectorComponent** \
+Form component attribute: **BynderSelectorComponent**
 
 Attribute configuration properties:
 
@@ -53,6 +53,7 @@ Example:
         [BynderSelectorComponent(AllowedTypes = new[] { AssetTypeConsts.Image }, MinimumAssets = 1, MaximumAssets = 3)]
         public IEnumerable<BynderAsset> BynderImage { get; set; }
     }
+
 ```
 
 ### Content type fields
@@ -118,6 +119,10 @@ This static class contains constants with all possible values for limiting allow
 ```
 
 See more info on [Bynder Docs](https://developer-docs.bynder.com/ui-components#compact-view)
+
+### DancingGoat widget example
+
+See the Bynder image widget implemented in the DancingGoat site [BynderImageWidget](./examples/DancingGoat/Components/Widgets/BynderImageWidget/)
 
 ## Contributing
 
