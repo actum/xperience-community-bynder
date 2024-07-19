@@ -1,13 +1,16 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+
 using CMS.Core;
+
 using Kentico.Xperience.Admin.Base.Forms;
+
 using XperienceCommunity.Bynder.Admin.UIFormComponents.BynderSelector;
 
 [assembly: RegisterFormComponent(
-	identifier: BynderSelectorFormComponent.IDENTIFIER,
-	componentType: typeof(BynderSelectorFormComponent),
-	name: "Bynder Selector Form Component")]
+    identifier: BynderSelectorFormComponent.IDENTIFIER,
+    componentType: typeof(BynderSelectorFormComponent),
+    name: "Bynder Selector Form Component")]
 
 namespace XperienceCommunity.Bynder.Admin.UIFormComponents.BynderSelector;
 
@@ -17,7 +20,7 @@ public class BynderSelectorFormComponent : FormComponent<BynderSelectorFormCompo
     public const string IDENTIFIER = "Bynder-Selector-Form-Component";
     public override string ClientComponentName => "@xperiencecommunity/bynder/BynderSelector";
 
-    private string allowedType;
+    private string[] allowedTypes;
 
     private int minimumAssets;
 
@@ -33,25 +36,32 @@ public class BynderSelectorFormComponent : FormComponent<BynderSelectorFormCompo
         minItemsValidationRule = new MinItemsValidationRule(() => GetValue(), localizationService);
         maxItemsValidationRule = new MaxItemsValidationRule(() => GetValue(), localizationService);
 
-        AddValidationRule(minItemsValidationRule);
-        AddValidationRule(maxItemsValidationRule);
+        if (Properties.MinimumAssets > 0)
+        {
+            AddValidationRule(minItemsValidationRule);
+        }
+
+        if (Properties.MaximumAssets > 0)
+        {
+            AddValidationRule(maxItemsValidationRule);
+        }
     }
 
     protected override void ConfigureComponent()
     {
-        allowedType = base.Properties.AllowedType;
-        minimumAssets = base.Properties.MinimumAssets;
-        maximumAssets = base.Properties.MaximumAssets;
+        allowedTypes = !string.IsNullOrEmpty(Properties.AllowedType) ? new string[] { Properties.AllowedType } : Properties.AllowedTypes;
+        minimumAssets = Properties.MinimumAssets;
+        maximumAssets = Properties.MaximumAssets;
 
-        minItemsValidationRule.Properties.MinItems = base.Properties.MinimumAssets;
-        maxItemsValidationRule.Properties.MaxItems = base.Properties.MaximumAssets;
+        minItemsValidationRule.Properties.MinItems = Properties.MinimumAssets;
+        maxItemsValidationRule.Properties.MaxItems = Properties.MaximumAssets;
 
         base.ConfigureComponent();
     }
 
     protected override async Task ConfigureClientProperties(BynderSelectorFormComponentClientProperties clientProperties)
     {
-        clientProperties.AllowedType = allowedType;
+        clientProperties.AllowedTypes = allowedTypes;
         clientProperties.MinimumAssets = minimumAssets;
         clientProperties.MaximumAssets = maximumAssets;
 

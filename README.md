@@ -1,21 +1,18 @@
-# ---XperienceCommunity Bynder---
+# XperienceCommunity.Bynder
 
 [![CI: Build and Test](https://github.com/actum/xperience-community-bynder/actions/workflows/ci.yml/badge.svg)](https://github.com/actum/xperience-community-bynder/actions/workflows/ci.yml)
 
 ## Description
 
----Please put here some general information about your Intergration / App / Solution.---
+This plugin enhances Xperience by Kentico with a form control that allows users to select assets from the DAM Bynder.
 
 ## Screenshots
 
-![XbK Bynder selector form component](/images/bynder_component1.png)
-![Bynder assets](/images/bynder_component2.png)
-![XbK Bynder selector items preview](/images/bynder_component3.png)
-![XbK Bynder selector for content type](/images/bynder_component_contenttype.png)
+![Bynder assets](/images/bynder_component1.png)
+
+![XbK Bynder selector items preview](/images/bynder_component2.png)
 
 ## Library Version Matrix
-
----This matrix explains which versions of the library are compatible with different versions of Xperience by Kentico---
 
 | Xperience Version | Library Version |
 | ----------------- | --------------- |
@@ -23,14 +20,11 @@
 
 ### Dependencies
 
----These are all the dependencies required to use (not build) the library---
-
 - [ASP.NET Core 8.0](https://dotnet.microsoft.com/en-us/download)
 - [Xperience by Kentico](https://docs.kentico.com/changelog)
+- [Bynder Compact View React Component](https://www.npmjs.com/package/@bynder/compact-view)
 
 ## Package Installation
-
----This details the steps required to add the library to a solution. This could include multiple packages (NuGet and/or npm)---
 
 Add the package to your application using the .NET CLI
 
@@ -40,22 +34,94 @@ dotnet add package XperienceCommunity.Bynder
 
 ## Quick Start
 
---
+### Widget properties
 
----This section shows how to quickly get started with the library. The minimum number of steps (without all the details) should be listed
-to give a developer a general idea of what is involved---
+C# data type: **IEnumerable\<BynderAsset\>** \
+Form component attribute: **BynderSelectorComponent** \
+
+Attribute configuration properties:
+
+- **MinimumAssets** - sets the minimum number of selected assets, default value is 0
+- **MaximumAssets** - sets the maximum number of selected assets, default value is 0 (unlimited)
+- **AssetTypes** - Allows to limit allowed asset types, see the [AssetTypeConsts](#assettypeconsts)
+
+Example:
+
+```csharp
+    public class BynderImageWidgetProperties : IWidgetProperties
+    {
+        [BynderSelectorComponent(AllowedTypes = new[] { AssetTypeConsts.Image }, MinimumAssets = 1, MaximumAssets = 3)]
+        public IEnumerable<BynderAsset> BynderImage { get; set; }
+    }
+```
+
+### Content type fields
+
+Data type: **bynderassets** \
+Form component: **Bynder selector form component**
+
+Form component configuration:
+
+- **MinimumAssets** - sets the minimum number of selected assets, default value is 0
+- **MaximumAssets** - sets the maximum number of selected assets, default value is 0 (unlimited)
+- **AssetType** - Allows to limit allowed asset types, supports single select only
+
+![XbK Bynder selector for content type](/images/bynder_component_contenttype.png)
 
 ## Full Instructions
 
----Add the full instructions, guidance, and tips to the Usage-Guide.md file---
+### C# data model
 
-View the [Usage Guide](./docs/Usage-Guide.md) for more detailed instructions.
+```csharp
+    public class BynderAsset
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string Url { get; set; }
+        public string[] Extensions { get; set; }
+        public string[] Tags { get; set; }
+        public string DatabaseId { get; set; }
+        public string Type { get; set; }
+        public BynderAssetFiles Files { get; set; }
+    }
+
+    public class BynderAssetFiles
+    {
+        public BynderAssetFile Original { get; set; }
+        public BynderAssetFile Thumbnail { get; set; }
+        public BynderAssetFile Mini { get; set; }
+        public BynderAssetFile WebImage { get; set; }
+    }
+
+    public class BynderAssetFile
+    {
+        public string Url { get; set; }
+        public int? Width { get; set; }
+        public int? Height { get; set; }
+        public int? FileSize { get; set; }
+    }
+```
+
+### AssetTypeConsts
+
+This static class contains constants with all possible values for limiting allowed asset types.
+
+```csharp
+    public static class AssetTypeConsts
+    {
+        public const string Image = "IMAGE";
+        public const string Document = "DOCUMENT";
+        public const string Video = "VIDEO";
+        public const string Audio = "AUDIO";
+    }
+```
+
+See more info on [Bynder Docs](https://developer-docs.bynder.com/ui-components#compact-view)
 
 ## Contributing
 
-To see the guidelines for Contributing to Kentico open source software, please see [Kentico's `CONTRIBUTING.md`](https://github.com/Kentico/.github/blob/main/CONTRIBUTING.md) for more information and follow the [Kentico's `CODE_OF_CONDUCT`](https://github.com/Kentico/.github/blob/main/CODE_OF_CONDUCT.md).
-
-Instructions and technical details for contributing to **this** project can be found in [Contributing Setup](./docs/Contributing-Setup.md).
+Feel free to submit issues or pull requests to the repository.
 
 ## License
 

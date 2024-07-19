@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 
@@ -8,7 +9,7 @@ namespace DancingGoat.Widgets
 {
     public class BynderImageWidgetProperties : IWidgetProperties
     {
-        [BynderSelectorComponent(AllowedType = AssetTypeConsts.Image, MinimumAssets = 1, MaximumAssets = 3)]
+        [BynderSelectorComponent(AllowedTypes = new[] { AssetTypeConsts.Image }, MinimumAssets = 1, MaximumAssets = 3)]
         [RequiredValidationRule]
         public IEnumerable<BynderAsset> BynderImage { get; set; }
     }
