@@ -3,6 +3,7 @@
     <TargetFramework>net6.0</TargetFramework>
 	<AdminOrgName>XperienceCommunity</AdminOrgName>
 	<RootNamespace>XperienceCommunity.Bynder</RootNamespace>
+	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
     <AssemblyAttribute Include="CMS.AssemblyDiscoverableAttribute">
