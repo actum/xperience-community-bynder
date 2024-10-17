@@ -87,12 +87,12 @@ Form component configuration:
         public BynderAssetFiles Files { get; set; }
     }
 
-    public class BynderAssetFiles
+    public class BynderAssetFiles : Dictionary<string, BynderAssetFile>
     {
-        public BynderAssetFile Original { get; set; }
-        public BynderAssetFile Thumbnail { get; set; }
-        public BynderAssetFile Mini { get; set; }
-        public BynderAssetFile WebImage { get; set; }
+        public BynderAssetFile Original => this["original"];
+        public BynderAssetFile Thumbnail => this["thumbnail"];
+        public BynderAssetFile Mini => this["mini"];
+        public BynderAssetFile WebImage => this["webImage"];
     }
 
     public class BynderAssetFile

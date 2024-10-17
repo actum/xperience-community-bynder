@@ -1,12 +1,5 @@
 ﻿import { File, assetType } from "@bynder/compact-view";
 
-export interface AssetFiles {
-  readonly thumbnail: File;
-  readonly original: File;
-  readonly mini: File;
-  readonly webImage: File;
-}
-
 export interface Asset {
   readonly id: string;
   readonly name: string;
@@ -16,5 +9,5 @@ export interface Asset {
   readonly tags: string[];
   readonly databaseId: string;
   readonly type: assetType;
-  readonly files: AssetFiles;
+  readonly files: Record<string, File>;
 }

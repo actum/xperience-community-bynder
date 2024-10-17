@@ -1,13 +1,15 @@
-﻿namespace XperienceCommunity.Bynder.Admin.UIFormComponents.BynderSelector
+﻿using System.Collections.Generic;
+
+namespace XperienceCommunity.Bynder.Admin.UIFormComponents.BynderSelector
 {
-    public class BynderAssetFiles
+    public class BynderAssetFiles : Dictionary<string, BynderAssetFile>
     {
-        public BynderAssetFile Original { get; set; }
+        public BynderAssetFile Original => this["original"];
 
-        public BynderAssetFile Thumbnail { get; set; }
+        public BynderAssetFile Thumbnail => this["thumbnail"];
 
-        public BynderAssetFile Mini { get; set; }
+        public BynderAssetFile Mini => this["mini"];
 
-        public BynderAssetFile WebImage { get; set; }
+        public BynderAssetFile WebImage => this["webImage"];
     }
 }
