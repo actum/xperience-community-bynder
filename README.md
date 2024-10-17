@@ -17,6 +17,7 @@ This plugin enhances Xperience by Kentico with a form control that allows users 
 | Xperience Version | Library Version |
 | ----------------- | --------------- |
 | >= 29.2.0         | 1.0.0           |
+| >= 29.2.0         | 1.1.0           |
 
 ### Dependencies
 
