@@ -18,6 +18,7 @@ This plugin enhances Xperience by Kentico with a form control that allows users 
 | ----------------- | --------------- |
 | >= 29.2.0         | 1.0.0           |
 | >= 29.2.0         | 1.1.0           |
+| >= 29.2.0         | 1.1.1           |
 
 ### Dependencies
 
@@ -90,10 +91,10 @@ Form component configuration:
 
     public class BynderAssetFiles : Dictionary<string, BynderAssetFile>
     {
-        public BynderAssetFile Original => this["original"];
-        public BynderAssetFile Thumbnail => this["thumbnail"];
-        public BynderAssetFile Mini => this["mini"];
-        public BynderAssetFile WebImage => this["webImage"];
+        public BynderAssetFile Original => this.GetValueOrDefault("Original");
+        public BynderAssetFile Thumbnail => this.GetValueOrDefault("Thumbnail");
+        public BynderAssetFile Mini => this.GetValueOrDefault("Mini");
+        public BynderAssetFile WebImage => this.GetValueOrDefault("WebImage");
     }
 
     public class BynderAssetFile
