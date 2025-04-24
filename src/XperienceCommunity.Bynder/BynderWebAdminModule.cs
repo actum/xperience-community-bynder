@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Globalization;
 
+using CMS.Core;
 using CMS.DataEngine;
 using CMS.DataEngine.Internal;
+using CMS.FormEngine;
 using CMS.Helpers;
 
 using Kentico.Xperience.Admin.Base;
@@ -27,7 +28,7 @@ namespace XperienceCommunity.Bynder
         protected override void OnPreInit()
         {
             base.OnPreInit();
-            this.RegisterDataTypes();
+            RegisterDataTypes();
         }
 
         protected override void OnInit()
@@ -36,6 +37,12 @@ namespace XperienceCommunity.Bynder
 
             // Makes the module accessible to the admin UI
             RegisterClientModule("xperiencecommunity", "bynder");
+        }
+
+        protected override void OnInit(ModuleInitParameters parameters)
+        {
+            base.OnInit(parameters);
+            RegisterCodeGenerator();
         }
 
         private void RegisterDataTypes()
@@ -52,6 +59,18 @@ namespace XperienceCommunity.Bynder
             });
 
             RegisterDefaultValueComponent("bynderassets", TextInputComponent.IDENTIFIER, ValidationHelper.GetValue<string>, (string value) => ValidationHelper.GetValue<string>(value));
+        }
+
+        private void RegisterCodeGenerator()
+        {
+            var generator = new DataTypeCodeGenerator(
+                    field => "IEnumerable<BynderAsset>",
+                    field => nameof(ValidationHelper.GetString),
+                    field => "[]",
+                    field => new List<string> { "System.Collections.Generic" }
+                );
+
+            DataTypeCodeGenerationManager.RegisterDataTypeCodeGenerator(nameof(BynderAsset), () => generator);
         }
     }
 }
