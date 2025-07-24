@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
 	<AdminOrgName>XperienceCommunity</AdminOrgName>
 	<RootNamespace>XperienceCommunity.Bynder</RootNamespace>
 	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -35,6 +35,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="kentico.xperience.admin" />
+    <PackageReference Include="Kentico.Xperience.Core" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Admin\Client\dist\" />
