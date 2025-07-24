@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 
 using CMS.Core;
 using CMS.DataEngine;
@@ -25,24 +26,20 @@ namespace XperienceCommunity.Bynder
         {
         }
 
-        protected override void OnPreInit()
+        protected override void OnPreInit(ModulePreInitParameters parameters)
         {
-            base.OnPreInit();
+            base.OnPreInit(parameters);
+            Debugger.Launch();
             RegisterDataTypes();
-        }
-
-        protected override void OnInit()
-        {
-            base.OnInit();
-
-            // Makes the module accessible to the admin UI
-            RegisterClientModule("xperiencecommunity", "bynder");
+            RegisterCodeGenerator();
         }
 
         protected override void OnInit(ModuleInitParameters parameters)
         {
             base.OnInit(parameters);
-            RegisterCodeGenerator();
+
+            // Makes the module accessible to the admin UI
+            RegisterClientModule("xperiencecommunity", "bynder");
         }
 
         private void RegisterDataTypes()
@@ -67,7 +64,8 @@ namespace XperienceCommunity.Bynder
                     field => "IEnumerable<BynderAsset>",
                     field => nameof(ValidationHelper.GetString),
                     field => "[]",
-                    field => new List<string> { "System.Collections.Generic" }
+                    field => new List<string> { "System.Collections.Generic", "XperienceCommunity.Bynder.Admin.UIFormComponents.BynderSelector" },
+                    field => ""
                 );
 
             DataTypeCodeGenerationManager.RegisterDataTypeCodeGenerator(nameof(BynderAsset), () => generator);
