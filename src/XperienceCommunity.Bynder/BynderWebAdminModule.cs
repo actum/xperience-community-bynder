@@ -48,7 +48,7 @@ namespace XperienceCommunity.Bynder
             {
                 TypeName = "Bynder assets",
                 TypeAlias = "string",
-                TypeGroup = "Assets",
+                //TypeGroup = "Assets",
                 SqlValueFormat = "N'{0}'",
                 DbType = SqlDbType.NVarChar,
                 DefaultValueCode = "String.Empty",
@@ -58,13 +58,13 @@ namespace XperienceCommunity.Bynder
             RegisterDefaultValueComponent("bynderassets", TextInputComponent.IDENTIFIER, ValidationHelper.GetValue<string>, (string value) => ValidationHelper.GetValue<string>(value));
         }
 
-        private void RegisterCodeGenerator()
+        private static void RegisterCodeGenerator()
         {
             var generator = new DataTypeCodeGenerator(
                     field => "IEnumerable<BynderAsset>",
                     field => nameof(ValidationHelper.GetString),
                     field => "[]",
-                    field => new List<string> { "System.Collections.Generic", "XperienceCommunity.Bynder.Admin.UIFormComponents.BynderSelector" },
+                    field => ["System.Collections.Generic", "XperienceCommunity.Bynder.Admin.UIFormComponents.BynderSelector"],
                     field => ""
                 );
 

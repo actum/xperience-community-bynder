@@ -14,16 +14,17 @@ This plugin enhances Xperience by Kentico with a form control that allows users 
 
 ## Library Version Matrix
 
-| Xperience Version | Library Version |
-| ----------------- | --------------- |
-| >= 29.2.0         | 1.0.0           |
-| >= 29.2.0         | 1.1.0           |
-| >= 29.2.0         | 1.1.1           |
-| >= 29.2.0         | 1.1.2           |
+| Xperience Version | Library Version | .NET version |
+| ----------------- | --------------- | ------------ |
+| >= 29.2.0         | 1.0.0           | 6            |
+| >= 29.2.0         | 1.1.0           | 6            |
+| >= 29.2.0         | 1.1.1           | 6            |
+| >= 29.2.0         | 1.1.2           | 6            |
+| >= 30.8.0         | 1.1.5           | 8            |
 
 ### Dependencies
 
-- [ASP.NET Core 6.0](https://dotnet.microsoft.com/en-us/download)
+- [ASP.NET Core 8.0](https://dotnet.microsoft.com/en-us/download)
 - [Xperience by Kentico](https://docs.kentico.com/changelog)
 - [Bynder Compact View React Component](https://www.npmjs.com/package/@bynder/compact-view)
 
