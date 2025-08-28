@@ -21,6 +21,8 @@ namespace XperienceCommunity.Bynder
 {
     internal class BynderWebAdminModule : AdminModule
     {
+        public const string DataTypeName = "bynderassets";
+
         public BynderWebAdminModule()
             : base("Bynder.Web.Admin")
         {
@@ -44,7 +46,7 @@ namespace XperienceCommunity.Bynder
 
         private void RegisterDataTypes()
         {
-            DataTypeManager.RegisterDataTypes(new DataType<IEnumerable<BynderAsset>>("nvarchar(max)", "bynderassets", "xs:string", JsonDataTypeConverter.ConvertToModels, JsonDataTypeConverter.ConvertToString, new DefaultDataTypeTextSerializer("bynderassets"))
+            DataTypeManager.RegisterDataTypes(new DataType<IEnumerable<BynderAsset>>("nvarchar(max)", DataTypeName, "xs:string", JsonDataTypeConverter.ConvertToModels, JsonDataTypeConverter.ConvertToString, new DefaultDataTypeTextSerializer("bynderassets"))
             {
                 TypeName = "Bynder assets",
                 TypeAlias = "string",
@@ -55,7 +57,7 @@ namespace XperienceCommunity.Bynder
                 IsAvailableForDataClass = (DataClassInfo dataClassInfo) => !string.Equals(dataClassInfo.ClassContentTypeType, "Email", StringComparison.OrdinalIgnoreCase)
             });
 
-            RegisterDefaultValueComponent("bynderassets", TextInputComponent.IDENTIFIER, ValidationHelper.GetValue<string>, (string value) => ValidationHelper.GetValue<string>(value));
+            RegisterDefaultValueComponent(DataTypeName, TextInputComponent.IDENTIFIER, ValidationHelper.GetValue<string>, (string value) => ValidationHelper.GetValue<string>(value));
         }
 
         private static void RegisterCodeGenerator()
@@ -68,7 +70,7 @@ namespace XperienceCommunity.Bynder
                     field => ""
                 );
 
-            DataTypeCodeGenerationManager.RegisterDataTypeCodeGenerator(nameof(BynderAsset), () => generator);
+            DataTypeCodeGenerationManager.RegisterDataTypeCodeGenerator(DataTypeName, () => generator);
         }
     }
 }

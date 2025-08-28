@@ -25,6 +25,8 @@
     <PackageReference Include="kentico.xperience.azurestorage" />
     <PackageReference Include="kentico.xperience.imageprocessing" />
     <PackageReference Include="kentico.xperience.webapp" />
+    <PackageReference Include="Magick.NET-Q8-AnyCPU" />
+    <PackageReference Include="XperienceCommunity.Bynder" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\XperienceCommunity.Bynder\XperienceCommunity.Bynder.csproj" />

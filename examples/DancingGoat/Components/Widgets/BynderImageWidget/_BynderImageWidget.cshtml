@@ -7,7 +7,7 @@
 	{
 		@foreach (var item in Model.BynderImage)
 		{
-			<img src="@item.Files?.WebImage?.Url" />
+			<img src="@item.Files?.WebImage?.Url" alt="@item.Name" longdesc="@item.Description" width="@item.Files?.WebImage.Width" height="@item.Files?.WebImage.Height" />
 		}
 	}
 </div>

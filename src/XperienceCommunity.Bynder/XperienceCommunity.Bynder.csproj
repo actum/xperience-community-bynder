@@ -36,6 +36,7 @@
   <ItemGroup>
     <PackageReference Include="kentico.xperience.admin" />
     <PackageReference Include="Kentico.Xperience.Core" />
+    <PackageReference Include="Magick.NET-Q8-AnyCPU" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Admin\Client\dist\" />

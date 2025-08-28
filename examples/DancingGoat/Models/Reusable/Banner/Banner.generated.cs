@@ -13,6 +13,8 @@ using System;
 using System.Collections.Generic;
 using CMS.ContentEngine;
 
+using XperienceCommunity.Bynder.Admin.UIFormComponents.BynderSelector;
+
 namespace DancingGoat.Models
 {
 	/// <summary>
@@ -37,7 +39,7 @@ namespace DancingGoat.Models
 		/// <summary>
 		/// BannerBackgroundImage.
 		/// </summary>
-		public IEnumerable<Image> BannerBackgroundImage { get; set; }
+		public IEnumerable<BynderAsset> BannerBackgroundImage { get; set; }
 
 
 		/// <summary>
