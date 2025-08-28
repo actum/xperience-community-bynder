@@ -16,7 +16,7 @@ namespace DancingGoat.Models
 
             var image = banner.BannerBackgroundImage.FirstOrDefault();
 
-            return new BannerViewModel(image?.Url, banner.BannerHeaderText, banner.BannerText);
+            return new BannerViewModel(image?.Files["Ecommerce"].Url, banner.BannerHeaderText, banner.BannerText);
         }
     }
 }
