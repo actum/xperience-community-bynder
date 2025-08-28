@@ -1,44 +1,44 @@
 {
-  "name": "xperiencecommunity-bynder",
-  "version": "1.0.0",
-  "description": "Xperience by Kentico - Bynder integration.",
-  "private": true,
-  "scripts": {
-    "start": "webpack serve --mode development",
-    "build:dev": "webpack --mode=development",
-    "build": "webpack --mode=production"
-  },
-  "dependencies": {
-    "@bynder/compact-view": "^4.3.2",
-    "@kentico/xperience-admin-base": "30.8.0",
-    "@kentico/xperience-admin-components": "30.8.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.28.0",
-    "@babel/plugin-transform-runtime": "^7.28.0",
-    "@babel/preset-env": "^7.28.0",
-    "@babel/preset-react": "^7.27.1",
-    "@babel/preset-typescript": "^7.27.1",
-    "@kentico/xperience-webpack-config": "30.8.0",
-    "@types/react": "^18.3.23",
-    "@types/react-dom": "^18.3.7",
-    "babel-loader": "^10.0.0",
-    "eslint": "^9.31.0",
-    "prettier": "3.2.4",
-    "typescript": "5.3.3",
-    "webpack": "5.100.2",
-    "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.2"
-  },
-  "overrides": {
-    "react": "$react",
-    "react-dom": "$react"
-  },
-  "browserslist": [
-    "> .2% and last 3 versions",
-    "not op_mini all",
-    "not IE 11"
-  ]
+	"name": "xperiencecommunity-bynder",
+	"version": "1.1.6",
+	"description": "Xperience by Kentico - Bynder integration.",
+	"private": true,
+	"scripts": {
+		"start": "webpack serve --mode development",
+		"build:dev": "webpack --mode=development",
+		"build": "webpack --mode=production"
+	},
+	"dependencies": {
+		"@bynder/compact-view": "^5.1.1",
+		"@kentico/xperience-admin-base": "30.8.3",
+		"@kentico/xperience-admin-components": "30.8.3",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.28.0",
+		"@babel/plugin-transform-runtime": "^7.28.0",
+		"@babel/preset-env": "^7.28.0",
+		"@babel/preset-react": "^7.27.1",
+		"@babel/preset-typescript": "^7.27.1",
+		"@kentico/xperience-webpack-config": "30.8.3",
+		"@types/react": "^18.3.23",
+		"@types/react-dom": "^18.3.7",
+		"babel-loader": "^10.0.0",
+		"eslint": "^9.31.0",
+		"prettier": "3.2.4",
+		"typescript": "5.3.3",
+		"webpack": "5.100.2",
+		"webpack-cli": "^6.0.1",
+		"webpack-dev-server": "^5.2.2"
+	},
+	"overrides": {
+		"react": "$react",
+		"react-dom": "$react"
+	},
+	"browserslist": [
+		"> .2% and last 3 versions",
+		"not op_mini all",
+		"not IE 11"
+	]
 }

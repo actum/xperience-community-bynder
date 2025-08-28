@@ -114,7 +114,14 @@ export const BynderSelectorFormComponent = (
                         mode={props.maximumAssets > 1 ? "MultiSelect" : "SingleSelect"}
                         assetTypes={bynderAllowedTypes}
                     />
-                </Login>
+				</Login>
+				<Login>
+					<CompactView
+						language="en_US"
+						onSuccess={onSuccess}
+						assetFieldSelection={assetFieldSelection}
+					/>
+				</Login>
             </SidePanel>
         </FormItemWrapper>
     );
