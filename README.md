@@ -14,13 +14,13 @@ This plugin enhances Xperience by Kentico with a form control that allows users 
 
 ## Library Version Matrix
 
-| Xperience Version | Library Version | .NET version |
-| ----------------- | --------------- | ------------ |
-| >= 29.2.0         | 1.0.0           | 6            |
-| >= 29.2.0         | 1.1.0           | 6            |
-| >= 29.2.0         | 1.1.1           | 6            |
-| >= 29.2.0         | 1.1.2           | 6            |
-| >= 30.8.3         | 1.1.6           | 8            |
+| Xperience Version | Library Version | .NET version | UCV version |
+| ----------------- | --------------- | ------------ | ----------- |
+| >= 29.2.0         | 1.0.0           | 6            | 3.2.4	   |
+| >= 29.2.0         | 1.1.0           | 6            | 3.2.4	   |
+| >= 29.2.0         | 1.1.1           | 6            | 3.2.4	   |
+| >= 29.2.0         | 1.1.2           | 6            | 3.2.4	   |
+| >= 30.9.1         | 1.2.0           | 8            | 5.1.1	   |
 
 ### Dependencies
 

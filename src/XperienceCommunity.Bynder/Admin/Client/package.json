@@ -1,6 +1,6 @@
 {
 	"name": "xperiencecommunity-bynder",
-	"version": "1.1.6",
+	"version": "1.2.0",
 	"description": "Xperience by Kentico - Bynder integration.",
 	"private": true,
 	"scripts": {
@@ -10,8 +10,8 @@
 	},
 	"dependencies": {
 		"@bynder/compact-view": "^5.1.1",
-		"@kentico/xperience-admin-base": "30.8.3",
-		"@kentico/xperience-admin-components": "30.8.3",
+		"@kentico/xperience-admin-base": "30.9.1",
+		"@kentico/xperience-admin-components": "30.9.1",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1"
 	},
@@ -21,7 +21,7 @@
 		"@babel/preset-env": "^7.28.0",
 		"@babel/preset-react": "^7.27.1",
 		"@babel/preset-typescript": "^7.27.1",
-		"@kentico/xperience-webpack-config": "30.8.3",
+		"@kentico/xperience-webpack-config": "30.9.1",
 		"@types/react": "^18.3.23",
 		"@types/react-dom": "^18.3.7",
 		"babel-loader": "^10.0.0",
