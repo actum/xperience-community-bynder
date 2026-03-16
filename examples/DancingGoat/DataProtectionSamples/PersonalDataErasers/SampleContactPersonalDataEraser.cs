@@ -27,7 +27,7 @@ namespace Samples.DancingGoat
         /// <remarks>
         /// GUIDs are used to select only specific forms on the Dancing Goat sample sites.
         /// </remarks>
-        private readonly Dictionary<Guid, string> dancingGoatForms = new Dictionary<Guid, string>
+        private readonly Dictionary<Guid, string> dancingGoatForms = new()
         {
             // DancingGoatCoreContactUsNew
             { new Guid("0081DC2E-47F4-4ACD-80AE-FE39612F379C"), "UserEmail" },
@@ -119,7 +119,7 @@ namespace Samples.DancingGoat
             if (configuration.TryGetValue("DeleteSubmittedFormsActivities", out object deleteSubmittedFormsActivities)
                 && ValidationHelper.GetBoolean(deleteSubmittedFormsActivities, false))
             {
-                ActivityInfoProvider.ProviderObject.BulkDelete(new WhereCondition().WhereEquals("ActivityType", PredefinedActivityType.BIZFORM_SUBMIT)
+                ActivityInfo.Provider.BulkDelete(new WhereCondition().WhereEquals("ActivityType", PredefinedActivityType.BIZFORM_SUBMIT)
                                                                                    .WhereIn("ActivityContactID", contactIds));
             }
         }
@@ -173,7 +173,7 @@ namespace Samples.DancingGoat
             if (configuration.TryGetValue("deleteActivities", out object deleteActivities)
                 && ValidationHelper.GetBoolean(deleteActivities, false))
             {
-                ActivityInfoProvider.ProviderObject.BulkDelete(new WhereCondition().WhereIn("ActivityContactID", contactIds));
+                ActivityInfo.Provider.BulkDelete(new WhereCondition().WhereIn("ActivityContactID", contactIds));
             }
         }
 

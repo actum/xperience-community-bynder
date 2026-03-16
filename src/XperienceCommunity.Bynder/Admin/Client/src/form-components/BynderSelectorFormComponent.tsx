@@ -107,13 +107,15 @@ export const BynderSelectorFormComponent = (
 				size={SidePanelSize.Full}
 			>
 				<Login>
+					<div style={{ height: "80vh" }}>
 					<CompactView
 						language="en_US"
 						onSuccess={onSuccess}
 						selectedAssets={selectedBynderAssets}
 						mode={props.maximumAssets > 1 ? "MultiSelect" : "SingleSelect"}
 						assetTypes={bynderAllowedTypes}
-					/>
+						/>
+					</div>
 				</Login>
 			</SidePanel>
 		</FormItemWrapper>

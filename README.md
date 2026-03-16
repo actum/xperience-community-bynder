@@ -21,6 +21,7 @@ This plugin enhances Xperience by Kentico with a form control that allows users 
 | >= 29.2.0         | 1.1.1           | 6            | 3.2.4	   |
 | >= 29.2.0         | 1.1.2           | 6            | 3.2.4	   |
 | >= 30.9.1         | 1.2.0           | 8            | 5.1.1	   |
+| >= 31.2.3         | 1.3.0           | 10           | 5.1.3	   |
 
 ### Dependencies
 
