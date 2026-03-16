@@ -13,6 +13,9 @@ module.exports = (opts, argv) => {
   };
 
   const projectConfig = {
+    output: {
+      clean: true, // ← removes stale hashed files before each build
+    },
     module: {
       rules: [
         {
